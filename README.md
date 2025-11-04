@@ -1,2 +1,52 @@
-# tfidf-futebol-similarity
-Projeto de análise de similaridade textual usando TF-IDF e cosseno para comparar descrições de jogadores de futebol. O código é executado em Python (NLTK + Scikit-learn). É necessário fazer upload do dataset CSV no Colab ou no ambiente local para que o notebook funcione corretamente
+Este repositório contém um projeto de Ciência de Dados que aplica o algoritmo TF-IDF (Term Frequency–Inverse Document Frequency) para transformar descrições textuais de jogadores de futebol em vetores numéricos, permitindo o cálculo de similaridade de cosseno entre os textos.
+
+O objetivo principal é identificar quais jogadores possuem perfis semelhantes com base em sua descrição textual, utilizando técnicas de NLP (Processamento de Linguagem Natural) em Python.
+
+📂 Conteúdo do Projeto
+
+Notebook Jupyter (.ipynb) com o passo a passo da análise
+
+Pré-processamento de texto com NLTK
+
+Vetorização com TfidfVectorizer (Scikit-learn)
+
+Cálculo da similaridade entre textos usando cosine similarity
+
+Funções reutilizáveis para limpeza, tokenização e vetorização
+
+Relatório técnico em PDF explicando metodologia e resultados
+
+⚠️ IMPORTANTE – Sobre o Dataset
+
+O notebook não contém o dataset incluído por padrão.
+Para que o código funcione corretamente, o usuário deve fazer upload do arquivo CSV contendo as descrições dos jogadores.
+
+✅ Se estiver usando Google Colab:
+Basta subir o arquivo no ambiente e ajustar a linha:
+
+df = pd.read_csv('nome_do_arquivo.csv')
+
+
+✅ Se estiver rodando localmente (Jupyter / VSCode):
+Coloque o arquivo .csv na mesma pasta do notebook ou configure o caminho completo do arquivo.
+
+❗ Sem o dataset, o código não irá executar corretamente.
+
+🚀 Tecnologias Utilizadas
+Biblioteca	Uso
+pandas	leitura e manipulação do dataset
+nltk	limpeza de texto, stopwords, tokenização
+scikit-learn	TF-IDF e cálculo de similaridade
+re	remoção de pontuação e padrões textuais
+📌 Como Executar o Projeto
+
+Clone o repositório
+
+git clone https://github.com/seu-usuario/seu-repo.git
+
+
+Abra o notebook em Colab, Jupyter Notebook, Kaggle Notebook ou outro ambiente Python
+
+Faça upload do dataset .csv antes de rodar as células
+
+Execute o notebook de cima para baixo
