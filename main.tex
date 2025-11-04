@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article}
+
+% --------- Pacotes ---------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+
+\geometry{margin=2.5cm}
+\onehalfspacing
+
+% --------- Macros (dados da capa) ---------
+\newcommand{\instituicao}{CENTRO ESTADUAL DE EDUCAÇÃO TECNOLÓGICA PAULA SOUZA\\
+Faculdade de Tecnologia Baixada Santista Rubens Lara}
+
+\newcommand{\curso}{Curso Superior de Tecnologia em Ciência de Dados}
+\newcommand{\autor}{Luís Felipe Ruas do Nascimento}
+\newcommand{\disciplina}{Álgebra Linear -- Algoritmo de Similaridade de Cosseno}
+\newcommand{\cidade}{Santos}
+\newcommand{\ano}{2025}
+
+\begin{document}
+
+% --------- Capa ---------
+\begin{titlepage}
+\centering
+{\Large \textbf{\instituicao} \par}
+\vspace{2.5cm}
+{\large \curso \par}
+\vspace{3.5cm}
+{\LARGE \bfseries \disciplina \par}
+\vspace{3.5cm}
+{\Large \autor \par}
+\vfill
+{\Large \cidade~\ano \par}
+\end{titlepage}
+
+% ===================== INÍCIO DO DOCUMENTO =====================
+
+
+\begin{center}
+    {\Large \textbf{Relatório Técnico – Aplicação do TF-IDF e Similaridade do Cosseno}}\\[0.5cm]
+    
+    \textit{Resumo Técnico – Projeto de Ciência de Dados}\\[0.5cm]
+\end{center}
+
+% ===================== RESUMO =====================
+\section{Resumo:} 
+
+Este relatório apresenta a aplicação do algoritmo \textit{Term Frequency–Inverse Document Frequency} (TF-IDF) em um conjunto de dados relacionado ao futebol, com o objetivo de calcular similaridade entre descrições textuais de jogadores. O método foi implementado em Python com suporte das bibliotecas \texttt{NLTK} e \texttt{Scikit-learn}, realizando pré-processamento, vetorização e cálculo de similaridade pelo cosseno.
+
+% ===================== 1. INTRODUÇÃO =====================
+\section{Introdução}
+A análise de similaridade textual é amplamente utilizada em sistemas de recomendação, mineração de texto e recuperação de informação. O algoritmo TF-IDF é um dos métodos mais eficientes para converter documentos em vetores numéricos, permitindo a aplicação de métricas matemáticas como a similaridade do cosseno.
+
+Neste estudo, utiliza-se um dataset contendo informações e descrições de jogadores de futebol, com a finalidade de identificar semelhanças entre perfis textuais.
+
+% ===================== 2. DESCRIÇÃO DO DATASET =====================
+\section{Descrição do Dataset}
+O conjunto de dados utilizado possui uma coluna principal com descrições textuais de jogadores, contendo atributos como posição, características técnicas e estilo de jogo. O arquivo foi importado em formato CSV e manipulado por meio da biblioteca \texttt{pandas}.
+
+% ===================== 3. METODOLOGIA =====================
+\section{Metodologia}
+
+\subsection{Pré-processamento dos Dados}
+O texto foi padronizado por meio das seguintes etapas:
+\begin{itemize}
+    \item Conversão para letras minúsculas;
+    \item Remoção de pontuação utilizando expressões regulares;
+    \item Tokenização;
+    \item Remoção de \textit{stopwords} em português (\texttt{nltk.corpus.stopwords});
+    \item Reconstrução do texto limpo em formato string.
+\end{itemize}
+
+\subsection{Aplicação do TF-IDF}
+Após o pré-processamento, utilizou-se a classe \texttt{TfidfVectorizer} para transformar cada descrição em um vetor numérico baseado na relevância das palavras no corpus.
+
+\subsection{Similaridade do Cosseno}
+A similaridade entre os vetores TF-IDF foi calculada através da métrica de cosseno, gerando uma matriz de similaridade que indica o grau de proximidade semântica entre jogadores.
+
+\[
+\mathrm{cos\,sim}(u,v) = \frac{u \cdot v}{\|u\|\,\|v\|}
+\quad \textnormal{onde} \quad
+u \cdot v = \sum_{i=1}^{n} u_i v_i
+\]
+
+% ===================== 4. RESULTADOS =====================
+\section{Resultados}
+A matriz de similaridade permitiu identificar jogadores com perfis próximos a partir de suas descrições. O sistema demonstrou que textos contendo termos técnicos comuns, como "meia ofensivo" ou "velocidade e drible", apresentaram alta similaridade numérica.
+
+Os valores gerados variaram entre 0 e 1, onde 1 indica total equivalência textual e 0 ausência completa de similaridade. Em relação a angulação, quanto mais perto de 0° mais similaridade terá e quanto mais perto de 90° menos similaridade terá (ortogonal)
+
+% ===================== 5. CONCLUSÃO =====================
+\section{Conclusão}
+O uso do TF-IDF combinado com a similaridade do cosseno mostrou-se eficiente para análise automática de proximidade descritiva entre jogadores de futebol. O método pode ser expandido para aplicações como recomendação de atletas, agrupamento de perfis e análises comparativas em scouting esportivo.
+
+
+\end{document}
+
